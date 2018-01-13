@@ -58,7 +58,7 @@ class BaseLoggingMixin(object):
                     'query_params': self._clean_data(request.query_params.dict()),
                     'user': self._get_user(request),
                     'response_ms': self._get_response_ms(),
-                    'response': response.rendered_content,
+                    'response': str(response.rendered_content)[:1024],
                     'status_code': response.status_code,
                     'data': self._clean_data(self.log['data'])
                 }
